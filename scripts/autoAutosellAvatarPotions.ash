@@ -14,7 +14,7 @@ void main() {
 		if (isAvatarPotion(it)) {
 			amount = item_amount(it);
 			print("Selling " + amount + " of avatar potion: " + it + ".");
-			autosell(item_amount(it), it);
+			autosell(amount, it);
 		}
 	}
 }
