@@ -11,6 +11,8 @@ boolean inDisplayCase( item it ) {
  * Customize to your case.
  */
 boolean omitItem( item it ) {
+	return true;
+	/*
 	return (  it.name != "Tales from the Fireside"
 	       && it.name != "Biddy Cracker's Old-Fashioned Cookbook"
 	       && it.name != "Frosty's iceball"
@@ -33,6 +35,7 @@ boolean omitItem( item it ) {
 	       && it.name != "solid shifting time weirdness"
 	       && it.name != "infinite BACON machine"
 		   );
+	*/
 }
 
 /*
