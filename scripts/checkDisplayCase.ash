@@ -1,7 +1,6 @@
 /*
  *	Reads inventory, and spits out a list of items you have not yet in your display case
  */
-
 boolean inDisplayCase( item it ) {
 	return (display_amount(it) > 0);
 }
@@ -26,6 +25,8 @@ boolean omitItem( item it ) {
 	       && it.name != "portable pantogram"
 	       && it.name != "The Cocktail Shaker"
 	       && it.name != "Chroner cross"
+	       && it.name != "mumming trunk"
+	       && it.name != "KoL Con 13 snowglobe"
 	       && it.name != "Spellbook: Walberg's Dim Bulb"
 	       && it.name != "Spellbook: Singer's Faithful Ocelot"
 	       && it.name != "Spellbook: Drescher's Annoying Noise"
@@ -63,14 +64,24 @@ boolean filterItemTypes( item it ) {
 		  );
 }
 
-void main() {
+void main(boolean showAllDisplayable) {
 	int[item] inventory = get_inventory();
 	boolean found = false;
-	
+
 	foreach it in inventory	{
-		if (!inDisplayCase(it) && is_displayable(it) && filterItemTypes(it) && omitItem(it)) {
-			found = true;
-			print(it + " is not in your display case.");
+		if (!inDisplayCase(it) && is_displayable(it) && omitItem(it)) {
+			if(it.name == "raffle ticket") continue; // raffle tickets are displayable, but disappear each day regardless
+			if(showAllDisplayable) {
+				found = true;
+				print(it + " is not in your display case.");
+			} else {
+				if(filterItemTypes(it)) {
+					found = true;
+					print(it + " is not in your display case.");
+				} else {
+					continue;
+				}
+			}
 		}
 	}
 	
