@@ -1,6 +1,6 @@
 script "clipArtMall.ash"
-since r18480;
 notify charasan;
+since r18480;
 
 // Borrowed from Ezandora's Guide script
 boolean skill_is_usable(skill s)

@@ -2,8 +2,8 @@
  *	A small script by Charasan to auto-autosell annoying avatar potions.
  */
 script "autoAutosellAvatarPotions.ash"
-since r18480;
 notify charasan;
+since r18480;
  
 boolean isAvatarPotion( item it ) {
 	return it.effect_modifier( "Effect" ).string_modifier( "Avatar" ) != "";

@@ -2,8 +2,8 @@
  *	Reads inventory, and spits out a list of items you have not yet in your display case
  */
 script "checkDisplayCase.ash"
-since r18480;
 notify charasan;
+since r18480;
 
 boolean inDisplayCase( item it ) {
 	return (display_amount(it) > 0);
