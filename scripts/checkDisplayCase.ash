@@ -1,6 +1,10 @@
 /*
  *	Reads inventory, and spits out a list of items you have not yet in your display case
  */
+script "checkDisplayCase.ash"
+since r18480;
+notify charasan;
+
 boolean inDisplayCase( item it ) {
 	return (display_amount(it) > 0);
 }
@@ -11,10 +15,20 @@ boolean inDisplayCase( item it ) {
  * Customize to your case.
  */
 boolean omitItem( item it ) {
-	return true;
-	/*
-	return (  it.name != "Tales from the Fireside"
-	       && it.name != "Biddy Cracker's Old-Fashioned Cookbook"
+	return (  it.name != "protonic accelerator pack"
+	       && it.name != "Time-Spinner"
+	       && it.name != "Camp Scout backpack"
+	       && it.name != "Buddy Bjorn"
+	       && it.name != "over-the-shoulder Folder Holder"
+	       && it.name != "Jarlsberg's pan"
+	       && it.name != "Sneaky Pete's leather jacket"
+	       && it.name != "genie bottle"
+	       && it.name != "portable pantogram"
+	       && it.name != "Greatest American Pants"
+	       && it.name != "Kremlin's Greatest Briefcase"
+	       && it.name != "mumming trunk"
+	       && it.name != "Asdon Martin keyfob"
+	       && it.name != "January's Garbage Tote"
 	       && it.name != "Frosty's iceball"
 	       && it.name != "Clan VIP Lounge key"
 	       && it.name != "warbear jackhammer drill press"
@@ -23,11 +37,9 @@ boolean omitItem( item it ) {
 	       && it.name != "warbear LP-ROM burner"
 	       && it.name != "warbear breakfast machine"
 	       && it.name != "warbear soda machine"
-	       && it.name != "genie bottle"
-	       && it.name != "portable pantogram"
 	       && it.name != "The Cocktail Shaker"
-	       && it.name != "Chroner cross"
-	       && it.name != "mumming trunk"
+	       && it.name != "bindle of joy"
+	       && it.name != "flickering pixel"
 	       && it.name != "KoL Con 13 snowglobe"
 	       && it.name != "Spellbook: Walberg's Dim Bulb"
 	       && it.name != "Spellbook: Singer's Faithful Ocelot"
@@ -35,7 +47,6 @@ boolean omitItem( item it ) {
 	       && it.name != "solid shifting time weirdness"
 	       && it.name != "infinite BACON machine"
 		   );
-	*/
 }
 
 /*
