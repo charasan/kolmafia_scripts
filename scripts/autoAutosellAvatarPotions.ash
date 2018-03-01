@@ -1,5 +1,6 @@
 /*
- *	A small script by Charasan to auto-autosell annoying avatar potions.
+ *	A small script by Charasan to autosell annoying avatar potions.
+ *  Adapted to autosell and/or use items from Mr. Screege's spectacles
  */
 script "autoAutosellAvatarPotions.ash"
 notify charasan;
@@ -9,19 +10,27 @@ boolean isAvatarPotion( item it ) {
 	return it.effect_modifier( "Effect" ).string_modifier( "Avatar" ) != "";
 }
 
-boolean isMiningItem( item it ) {
-	return ( 
-			   (it.name == "pointed stick")
-			|| (it.name == "adder")
-			|| (it.name == "briefcase")
-			|| (it.name == "pygmy briefs")
-			|| (it.name == "attorney's badge")
-			|| (it.name == "short calculator")
-//			|| (it.name == "bone abacus")
-			|| (it.name == "world's smallest violin")
-			|| (it.name == "headhunter necktie")
-			|| (it.name == "short writ of habeas corpus")
-			
+boolean isMoneyItem( item it ) {
+	return (
+			(it.name == "leather bookmark")
+		 || (it.name == "1952 Mickey Mantle card")
+		 || (it.name == "stolen meatpouch")
+		 || (it.name == "decomposed boot")
+		 || (it.name == "old leather wallet")
+		 || (it.name == "dollar-sign bag")
+		 || (it.name == "CSA discount card")
+		 || (it.name == "massive gemstone")
+		 || (it.name == "pile of gold coins")
+		 || (it.name == "huge gold coin")
+		 || (it.name == "shiny stones")
+		 || (it.name == "fat wallet")
+		 || (it.name == "pixel coin")
+		 || (it.name == "duct tape wallet")
+		 || (it.name == "half of a gold tooth")
+		 || (it.name == "pixellated moneybag")
+		 || (it.name == "solid gold jewel")
+		 || (it.name == "ancient vinyl coin purse")
+		 || (it.name == "old coin purse")
 		   );
 }
 
@@ -35,9 +44,20 @@ void main() {
 			print("Selling " + amount + " of avatar potion: " + it + ".");
 			autosell(amount, it);
 		}
-		/*
-		if (isMiningItem(it)) {
-			if (it.name == "briefcase") {
+
+		// Some money items need to used, not autosold
+		if (isMoneyItem(it)) {
+			if (it.name == "stolen meatpouch" 
+			 || it.name == "old leather wallet"
+			 || it.name == "old coin purse"
+			 || it.name == "shiny stones"
+			 || it.name == "fat wallet"
+			 || it.name == "pixel coin"
+			 || it.name == "pixellated moneybag"
+			 || it.name == "duct tape wallet"
+			 || it.name == "solid gold jewel"
+			 || it.name == "ancient vinyl coin purse"
+			 || it.name == "CSA discount card") {
 				use(1, it);
 			}
 			else {
@@ -46,6 +66,5 @@ void main() {
 			}
 		
 		}
-		*/
 	}
 }
